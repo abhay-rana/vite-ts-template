@@ -1,7 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-const colors = require('./src/styles/theme-variable.js');
-
-/** @type {import('tailwindcss').Config} */
 module.exports = {
     content: ['./index.html', './src/**/*.{js,ts,jsx,tsx,mdx}'],
     darkMode: 'class', //dark mode is apply when there is change in the root class
@@ -32,7 +29,7 @@ module.exports = {
                 '@md': { min: '640px', max: '1023px' },
                 '@lg': { min: '1024px', max: '1440px' },
             },
-            colors: colors,
+            
             padding: {
                 5: '1rem',
                 15: '2rem',
