@@ -26,7 +26,11 @@
             "version": "detect"
         },
         "import/resolver": {
-            "typescript": {} // this loads <rootdir>/tsconfig.json to eslint
+            "typescript": {}, // this loads <rootdir>/tsconfig.json to eslint,
+            "node": {
+                "extensions": [".js", ".jsx", ".ts", ".tsx"],
+                "moduleDirectory": ["node_modules", "src/"]
+            }
         }
     }
 }
