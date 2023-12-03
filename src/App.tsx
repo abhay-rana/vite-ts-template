@@ -1,10 +1,15 @@
+import React from 'react';
 import CounterIncrease from '~/components/counter-increase';
 
 import CounterTwo from '~/components/counter-two';
 import { useAppDispatch, useAppSelector } from '~/hooks/redux-hooks';
 import { increaseCounter } from '~/redux/slices/count-slice';
 
-const App = () => {
+interface AppProps {
+    title: string;
+}
+
+const App: React.FC<AppProps> = ({ title }) => {
     const store = useAppSelector((state) => ({
         first_counter: state.counter_store.counter,
     }));
@@ -17,6 +22,7 @@ const App = () => {
     return (
         <>
             <div>hello this is vite app</div>
+            <div>{title}</div>
             <button
                 onClick={increaseCount}
                 className="rounded-lg bg-red-200 p-4"
