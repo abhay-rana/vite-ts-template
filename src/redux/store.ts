@@ -30,8 +30,8 @@ const store = configureStore({
 
 export const persistor = persistStore(store);
 
+//This line is for typescirpt (Javascript does't have them)
 export type RootState = ReturnType<typeof store.getState>;
-
 export type AppDispatch = typeof store.dispatch;
 
 export default store;

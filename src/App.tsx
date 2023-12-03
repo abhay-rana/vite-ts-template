@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import CounterIncrease from '~/components/counter-increase';
 
 import CounterTwo from '~/components/counter-two';
 import { useAppDispatch, useAppSelector } from '~/hooks/redux-hooks';
@@ -25,8 +25,9 @@ const App = () => {
             </button>
             <p>Value of counter is : {store.first_counter}</p>
             <CounterTwo />
+            <CounterIncrease />
         </>
     );
 };
 
-export default memo(App);
+export default App;
