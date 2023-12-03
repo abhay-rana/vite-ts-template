@@ -1,19 +1,19 @@
-import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+import { memo } from 'react';
+
 import CounterTwo from '~/components/counter-two';
-import { useAppSelector } from '~/hooks/redux-hooks';
+import { useAppDispatch, useAppSelector } from '~/hooks/redux-hooks';
 import { increaseCounter } from '~/redux/slices/count-slice';
-import { RootState } from '~/redux/store';
 
 const App = () => {
     const store = useAppSelector((state) => ({
         first_counter: state.counter_store.counter,
     }));
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     function increaseCount() {
         dispatch(increaseCounter());
     }
-    console.log('component one');
+
     return (
         <>
             <div>hello this is vite app</div>
@@ -29,4 +29,4 @@ const App = () => {
     );
 };
 
-export default App;
+export default memo(App);
