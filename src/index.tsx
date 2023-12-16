@@ -8,7 +8,7 @@ import '~/styles/index.css';
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
         <Provider store={store}>
-            <App title="this is app component" />
+            <App />
         </Provider>
     </React.StrictMode>
 );
