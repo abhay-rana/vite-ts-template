@@ -29,7 +29,7 @@ const App: React.FC = () => {
             <p>Value of counter is : {store.first_counter}</p>
             <CounterTwo />
             <CounterIncrease />
-            <Button onClick={increaseCount}>Button</Button>
+            <Button color="danger">Abhay Rana</Button>
         </>
     );
 };
