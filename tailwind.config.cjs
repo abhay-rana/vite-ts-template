@@ -29,7 +29,7 @@ module.exports = {
                 '@md': { min: '640px', max: '1023px' },
                 '@lg': { min: '1024px', max: '1440px' },
             },
-            
+
             padding: {
                 5: '1rem',
                 15: '2rem',
@@ -45,5 +45,4 @@ module.exports = {
     important: true,
 };
 
-
-"https://mrtnschndlr.medium.com/things-to-rethink-with-tailwind-css-part-1-breakpoints-b2809e2bbb2"
+('https://mrtnschndlr.medium.com/things-to-rethink-with-tailwind-css-part-1-breakpoints-b2809e2bbb2');
