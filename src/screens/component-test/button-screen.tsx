@@ -1,10 +1,10 @@
 import React from 'react';
-import Button from '~/components/library/Button/button';
+import { Button } from '~/components';
 
 const ButtonScreen: React.FC = () => {
     return (
         <>
-            <div className="flex h-full flex-col items-center justify-center gap-4">
+            <div className="mt-10 flex h-full flex-col items-center justify-center gap-4">
                 <Button color="primary">primary</Button>
                 <Button color="secondary">secondary</Button>
                 <Button color="danger">danger</Button>
@@ -16,6 +16,9 @@ const ButtonScreen: React.FC = () => {
                 </Button>
                 <Button color="success" uppercase shape="brick">
                     brick
+                </Button>
+                <Button color="success" uppercase shape="block">
+                    block
                 </Button>
                 <Button color="success" uppercase shape="brick" size="xs">
                     xs
@@ -38,11 +41,26 @@ const ButtonScreen: React.FC = () => {
                 >
                     disabled
                 </Button>
+                <Button
+                    color="success"
+                    uppercase
+                    shape="brick"
+                    size="md"
+                    tooltip="this is aby"
+                >
+                    medium tooltip
+                </Button>
                 <Button uppercase link="https://www.youtube.com">
                     Link
                 </Button>
                 <Button uppercase link="https://www.youtube.com" color="danger">
                     Link
+                </Button>
+                <Button uppercase link="https://www.youtube.com">
+                    hover
+                </Button>
+                <Button uppercase loading>
+                    loading
                 </Button>
                 <Button
                     uppercase

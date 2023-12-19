@@ -4,7 +4,7 @@ import { cn } from '~/utils/className';
 import { cva } from 'class-variance-authority';
 
 const variants = cva(
-    'w-full text-white flex items-center justify-center relative focus:outline-none',
+    'text-white flex items-center justify-center relative focus:outline-none rounded-md hover:bg-red-400',
     {
         variants: {
             color: {
@@ -15,21 +15,22 @@ const variants = cva(
                 success: 'bg-success',
             },
             size: {
-                sm: 'h-8 text-[14px]',
-                xs: 'h-6 text-[10px]',
-                md: 'h-10 text-[16px]',
-                lg: 'h-14 text-[18px]',
+                xs: 'h-6 text-[10px] p-4',
+                sm: 'h-8 text-[14px] p-6',
+                md: 'h-10 text-[16px] p-8',
+                lg: 'h-14 text-[18px] p-12',
             },
             shape: {
-                pill: 'rounded-2xl',
-                brick: 'block',
+                pill: 'rounded-3xl',
+                brick: '',
+                block: 'w-full',
             },
             state: {
                 normal: '',
                 active: '',
                 disabled: '',
-                loading: '',
-                hover: '',
+                loading: 'hover:none',
+                hover: 'hover:bg-red-400',
             },
         },
         defaultVariants: {
@@ -46,8 +47,8 @@ export interface IButtonProps extends React.ComponentPropsWithoutRef<'button'> {
     className?: string;
     color?: 'primary' | 'secondary' | 'danger' | 'warning' | 'success';
     size?: 'sm' | 'xs' | 'md' | 'lg';
-    shape?: 'pill' | 'brick';
-    state?: 'normal' | 'active' | 'disabled' | 'loading' | 'hover';
+    shape?: 'pill' | 'brick' | 'block';
+    loading?: boolean;
     children: React.ReactNode;
     link?: string;
 }
@@ -59,16 +60,16 @@ const Button: React.FC<IButtonProps> = ({
     color = 'primary',
     size = 'md',
     shape = 'brick',
-    state = 'normal',
     className = '',
     link = '',
+    loading = false,
     ...props
 }) => {
-    const { disabled } = props;
+    const { disabled = false } = props;
 
     const conditional_class = {
         uppercase: uppercase,
-        'opacity-50 cursor-not-allowed': disabled,
+        'opacity-50  pointer-events-none': disabled || loading,
         'text-primary bg-white': color === 'primary' && link,
         'text-danger bg-white': color === 'danger' && link,
         'text-success bg-white': color === 'success' && link,
@@ -80,7 +81,7 @@ const Button: React.FC<IButtonProps> = ({
                 {...props}
                 title={tooltip}
                 className={cn(
-                    variants({ color, shape, size, state }),
+                    variants({ color, shape, size }),
                     conditional_class,
                     className
                 )}
