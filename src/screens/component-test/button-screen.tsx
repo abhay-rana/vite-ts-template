@@ -1,10 +1,11 @@
 import React from 'react';
 import { Button } from '~/components';
+import AddSvg from '~/assets/svg/add-svg.svg';
 
 const ButtonScreen: React.FC = () => {
     return (
         <>
-            <div className="mt-10 flex h-full flex-col items-center justify-center gap-4">
+            <div className="flex h-full flex-col gap-4">
                 <Button color="primary">primary</Button>
                 <Button color="secondary">secondary</Button>
                 <Button color="danger">danger</Button>
@@ -68,6 +69,21 @@ const ButtonScreen: React.FC = () => {
                     color="success"
                 >
                     Link
+                </Button>
+                <Button color="success" className="h-24 rounded-full">
+                    <AddSvg />
+                </Button>
+                <Button color="success">
+                    <div className="flex flex-row items-center justify-center gap-3">
+                        <AddSvg />
+                        Add
+                    </div>
+                </Button>
+                <Button color="success" loading>
+                    <div className="flex flex-row items-center justify-center gap-3">
+                        <AddSvg />
+                        Add
+                    </div>
                 </Button>
             </div>
         </>

@@ -5,7 +5,7 @@ import { cva } from 'class-variance-authority';
 import SpinnerSvg from '~/components/library/Button/spinner.svg';
 
 const variants = cva(
-    'text-white flex flex-row items-center justify-center relative focus:outline-none rounded-md hover:bg-red-400',
+    'text-white flex flex-row items-center justify-center relative focus:outline-none rounded-md hover:bg-red-400 w-max',
     {
         variants: {
             color: {
