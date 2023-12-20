@@ -2,9 +2,10 @@ import React from 'react';
 import styles from './button.module.css';
 import { cn } from '~/utils/className';
 import { cva } from 'class-variance-authority';
+import SpinnerSvg from '~/components/library/Button/spinner.svg';
 
 const variants = cva(
-    'text-white flex items-center justify-center relative focus:outline-none rounded-md hover:bg-red-400',
+    'text-white flex flex-row items-center justify-center relative focus:outline-none rounded-md hover:bg-red-400',
     {
         variants: {
             color: {
@@ -28,8 +29,8 @@ const variants = cva(
             state: {
                 normal: '',
                 active: '',
-                disabled: '',
-                loading: 'hover:none',
+                disabled: 'pointer-events-none',
+                loading: 'pointer-events-none',
                 hover: 'hover:bg-red-400',
             },
         },
@@ -73,6 +74,7 @@ const Button: React.FC<IButtonProps> = ({
         'text-primary bg-white': color === 'primary' && link,
         'text-danger bg-white': color === 'danger' && link,
         'text-success bg-white': color === 'success' && link,
+        'gap-4': loading,
     };
 
     return (
@@ -86,6 +88,11 @@ const Button: React.FC<IButtonProps> = ({
                     className
                 )}
             >
+                {loading && (
+                    <div className="">
+                        <SpinnerSvg className="fill-current text-white" />
+                    </div>
+                )}
                 {children}
             </button>
         </>

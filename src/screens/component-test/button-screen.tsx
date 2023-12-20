@@ -59,7 +59,7 @@ const ButtonScreen: React.FC = () => {
                 <Button uppercase link="https://www.youtube.com">
                     hover
                 </Button>
-                <Button uppercase loading>
+                <Button uppercase loading={true}>
                     loading
                 </Button>
                 <Button

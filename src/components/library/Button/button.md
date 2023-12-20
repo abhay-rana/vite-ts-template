@@ -20,3 +20,5 @@ for ex. px-1 py-3 p-3 // i want the p-3 to be run , className={teMerge(extra_cla
     isLoading
     isIcon
     isLink> // this button is handling three types of buttons -> link buttons, icon button , loading buttons
+
+// pointer-events-none -> helps you to disable the button for on click and the stop propogation it will disable the hover style
