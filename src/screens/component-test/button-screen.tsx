@@ -5,7 +5,7 @@ import AddSvg from '~/assets/svg/add-svg.svg';
 const ButtonScreen: React.FC = () => {
     return (
         <>
-            <div className="flex h-full flex-col gap-4">
+            <div className="flex flex-col gap-4">
                 <Button color="primary">primary</Button>
                 <Button color="secondary">secondary</Button>
                 <Button color="danger">danger</Button>

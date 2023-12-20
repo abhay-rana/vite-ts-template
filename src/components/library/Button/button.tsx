@@ -3,6 +3,7 @@ import styles from './button.module.css';
 import { cn } from '~/utils/className';
 import { cva } from 'class-variance-authority';
 import SpinnerSvg from '~/components/library/Button/spinner.svg';
+import RippleEffect from '~/components/library/ripple/ripple-effect';
 
 const variants = cva(
     'text-white flex flex-row items-center justify-center relative focus:outline-none rounded-md hover:bg-red-400 w-max',
@@ -79,22 +80,24 @@ const Button: React.FC<IButtonProps> = ({
 
     return (
         <>
-            <button
-                {...props}
-                title={tooltip}
-                className={cn(
-                    variants({ color, shape, size }),
-                    conditional_class,
-                    className
-                )}
-            >
-                {loading && (
-                    <div className="">
-                        <SpinnerSvg className="fill-current text-white" />
-                    </div>
-                )}
-                {children}
-            </button>
+            <RippleEffect {...{ loading, disabled }}>
+                <button
+                    {...props}
+                    title={tooltip}
+                    className={cn(
+                        variants({ color, shape, size }),
+                        conditional_class,
+                        className
+                    )}
+                >
+                    {loading && (
+                        <div>
+                            <SpinnerSvg className="fill-current text-white" />
+                        </div>
+                    )}
+                    {children}
+                </button>
+            </RippleEffect>
         </>
     );
 };
