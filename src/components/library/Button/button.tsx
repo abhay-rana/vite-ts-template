@@ -32,7 +32,7 @@ const variants = cva(
                 active: '',
                 disabled: 'pointer-events-none',
                 loading: 'pointer-events-none',
-                hover: 'hover:bg-red-400',
+                hover: '',
             },
         },
         defaultVariants: {
@@ -67,7 +67,7 @@ const Button: React.FC<IButtonProps> = ({
     loading = false,
     ...props
 }) => {
-    const { disabled = false } = props;
+    const { disabled = false, onClick = () => {} } = props;
 
     const conditional_class = {
         uppercase: uppercase,
@@ -77,6 +77,10 @@ const Button: React.FC<IButtonProps> = ({
         'text-success bg-white': color === 'success' && link,
         'gap-4': loading,
     };
+
+    function handleClick(e: React.MouseEvent<HTMLButtonElement>) {
+        onClick(e);
+    }
 
     return (
         <>
@@ -89,6 +93,7 @@ const Button: React.FC<IButtonProps> = ({
                         conditional_class,
                         className
                     )}
+                    onClick={handleClick}
                 >
                     {loading && (
                         <div>
