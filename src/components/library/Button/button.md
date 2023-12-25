@@ -22,3 +22,10 @@ for ex. px-1 py-3 p-3 // i want the p-3 to be run , className={teMerge(extra_cla
     isLink> // this button is handling three types of buttons -> link buttons, icon button , loading buttons
 
 // pointer-events-none -> helps you to disable the button for on click and the stop propogation it will disable the hover style
+
+<!-- Problems -->
+
+1:) in ripple effect there is a problem of the
+-> when i hover on the button it shows the hover class of the button but when i click the button the span tag comes as a overlay to the button so now hover class of button will not shows
+-> solution to this problem may be use pseudo elements for the ripple effect,
+-> in adding a span children it creates a extra overlay
