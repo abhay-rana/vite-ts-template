@@ -45,4 +45,11 @@ Disabled.args = {
     disabled: true,
 };
 
+export const Link = Template.bind({});
+Link.args = {
+    ...Default.args,
+    link: 'hello',
+    children: 'Link',
+};
+
 // Add more stories for different variants (color, size, shape, etc.) as needed
