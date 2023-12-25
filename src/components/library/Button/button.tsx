@@ -6,7 +6,7 @@ import SpinnerSvg from '~/components/library/Button/spinner.svg';
 import RippleEffect from '~/components/library/ripple/ripple-effect';
 
 const variants = cva(
-    'text-white flex flex-row items-center justify-center relative focus:outline-none rounded-md hover:bg-red-400 w-max',
+    'text-white flex flex-row items-center justify-center relative focus:outline-none rounded-md hover:bg-red-400 w-max select-none',
     {
         variants: {
             color: {
@@ -89,7 +89,7 @@ const Button: React.FC<IButtonProps> = ({
             <RippleEffect {...{ loading, disabled }}>
                 <button
                     {...props}
-                    disabled={loading || props.disabled}
+                    disabled={loading || disabled}
                     title={tooltip}
                     className={cn(
                         variants({ color, shape, size }),
