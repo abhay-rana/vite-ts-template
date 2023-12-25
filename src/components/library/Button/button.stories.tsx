@@ -20,6 +20,13 @@ Default.args = {
     onClick: action('clicked'),
 };
 
+export const Primary = Template.bind({});
+Primary.storyName = 'Color: Primary';
+Primary.args = {
+    color: 'primary',
+    children: 'primary button',
+};
+
 export const WithTooltip = Template.bind({});
 WithTooltip.args = {
     ...Default.args,

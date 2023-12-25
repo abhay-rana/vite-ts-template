@@ -73,10 +73,13 @@ const Button: React.FC<IButtonProps> = ({
         uppercase: uppercase,
         'opacity-50  cursor-not-allowed': disabled,
         'opacity-50  cursor-progress': loading,
-        'text-primary bg-white': color === 'primary' && link,
-        'text-danger bg-white': color === 'danger' && link,
-        'text-success bg-white': color === 'success' && link,
+        'text-primary bg-white hover:bg-transparent':
+            color === 'primary' && link,
+        'text-danger bg-white hover:bg-transparent': color === 'danger' && link,
+        'text-success bg-white hover:bg-transparent':
+            color === 'success' && link,
         'gap-4': loading,
+        'hover:bg-transparent': link,
     };
 
     function createRipple(event: React.MouseEvent<HTMLDivElement>) {
@@ -131,7 +134,6 @@ const Button: React.FC<IButtonProps> = ({
 
     return (
         <>
-            {/* <RippleEffect {...{ loading, disabled }}> */}
             <button
                 {...props}
                 disabled={loading || disabled}
