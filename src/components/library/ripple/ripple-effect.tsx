@@ -63,7 +63,7 @@ const RippleEffect: React.FC<IRippleEffect> = ({
     return (
         <>
             <div onClick={createRipple} className={cn('custom_btn', 'w-max')}>
-                {children}
+                {/* {children} */}
             </div>
         </>
     );
