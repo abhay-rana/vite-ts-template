@@ -71,7 +71,8 @@ const Button: React.FC<IButtonProps> = ({
 
     const conditional_class = {
         uppercase: uppercase,
-        'opacity-50  pointer-events-none': disabled || loading,
+        'opacity-50  cursor-not-allowed': disabled,
+        'opacity-50  cursor-progress': loading,
         'text-primary bg-white': color === 'primary' && link,
         'text-danger bg-white': color === 'danger' && link,
         'text-success bg-white': color === 'success' && link,
@@ -79,6 +80,7 @@ const Button: React.FC<IButtonProps> = ({
     };
 
     function handleClick(e: React.MouseEvent<HTMLButtonElement>) {
+        console.log('hello');
         onClick(e);
     }
 
@@ -87,6 +89,7 @@ const Button: React.FC<IButtonProps> = ({
             <RippleEffect {...{ loading, disabled }}>
                 <button
                     {...props}
+                    disabled={loading || props.disabled}
                     title={tooltip}
                     className={cn(
                         variants({ color, shape, size }),
