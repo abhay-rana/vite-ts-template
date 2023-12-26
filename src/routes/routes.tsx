@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Router, Switch } from 'wouter';
 import FullLoaderScreen from '~/screens/component-test/full-loader.screen';
+import TabScreen from '~/screens/component-test/tabs-screen';
 
 import HomeScreen from '~/screens/home-screen';
 
@@ -18,6 +19,7 @@ const Routes: React.FC = () => {
                     <Switch>
                         <Route path="/" component={HomeScreen} />
                         <Route path="/button" component={ButtonScreen} />
+                        <Route path="/tabs" component={TabScreen} />
                         <Route
                             path="/full-loader"
                             component={FullLoaderScreen}

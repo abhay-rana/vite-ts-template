@@ -9,6 +9,12 @@ const HomeScreen: React.FC = () => {
                 <div className="mt-10 flex flex-col gap-4">
                     <Link to="/button">Button Components</Link>
                 </div>
+                <div className="mt-10 flex flex-col gap-4">
+                    <Link to="/full-loader">Overlay loader</Link>
+                </div>
+                <div className="mt-10 flex flex-col gap-4">
+                    <Link to="/tabs">Tabs</Link>
+                </div>
             </div>
         </>
     );
