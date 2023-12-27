@@ -1,13 +1,13 @@
 import React, { ReactNode, useEffect, useState } from 'react';
 import { cn } from '~/utils/className';
 
-interface ITabChild {
+export interface ITabChild {
     value: number;
     label: string;
     component: React.ComponentType;
 }
 
-interface ITabsProps {
+export interface ITabsProps {
     children: React.ReactNode;
     value: number;
     onChange: (value: number) => void;
@@ -16,12 +16,18 @@ const map_component = {};
 
 const Tabs: React.FC<ITabsProps> & { Tab: React.FC<ITabChild> } = ({
     children,
+    onChange,
     value,
 }) => {
     const [current_value, setValue] = useState<number | undefined>();
 
+    function changeValue(val: number) {
+        onChange(val);
+        setValue(val);
+    }
+
     useEffect(() => {
-        setValue(value);
+        changeValue(value);
     }, []);
 
     function mapValueComponent(obj: ITabChild) {
