@@ -18,7 +18,9 @@ const SecondComponent: React.FC = () => {
 };
 
 const TabScreen = () => {
-    function changeTab(value: number) {}
+    function changeTab(value: number) {
+        console.log(value);
+    }
     return (
         <>
             <Tabs value={1} onChange={changeTab}>

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 
 import Tabs, { ITabsProps, ITabChild } from '~/components/library/tabs/tabs';
 
@@ -15,7 +16,7 @@ const Template: Story<ITabsProps> = (args) => <Tabs {...args} />;
 export const Default = Template.bind({});
 Default.args = {
     value: 1, // Set your default tab value here
-    onChange: (value: number) => console.log(`Tab changed to ${value}`),
+    onChange: action('onChange'), // Use the action addon to capture the custom event
     children: [
         <Tabs.Tab
             key={1}

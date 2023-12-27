@@ -44,7 +44,7 @@ const Tabs: React.FC<ITabsProps> & { Tab: React.FC<ITabChild> } = ({
                         const tabChildProps = child.props as ITabChild;
                         mapValueComponent(tabChildProps);
                         return React.cloneElement(child, {
-                            setValue,
+                            changeValue,
                             current_value,
                         });
                     })}
@@ -58,8 +58,8 @@ const Tabs: React.FC<ITabsProps> & { Tab: React.FC<ITabChild> } = ({
 };
 
 const TabChild: React.FC<
-    ITabChild & { setValue: (val: number) => void; current_value: number }
-> = ({ value, label, component, setValue, current_value }) => {
+    ITabChild & { changeValue: (val: number) => void; current_value: number }
+> = ({ value, label, component, changeValue, current_value }) => {
     return (
         <>
             <div
@@ -67,7 +67,7 @@ const TabChild: React.FC<
                     'border-b-2 border-danger font-bold':
                         current_value === value,
                 })}
-                onClick={() => setValue(value)}
+                onClick={() => changeValue(value)}
             >
                 {label}
             </div>
