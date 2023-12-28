@@ -1,9 +1,12 @@
 import React from 'react';
 import { Route, Router, Switch } from 'wouter';
+import PrivateRoute from '~/routes/private-routes';
 import FullLoaderScreen from '~/screens/component-test/full-loader.screen';
 import TabScreen from '~/screens/component-test/tabs-screen';
 
 import HomeScreen from '~/screens/home-screen';
+import LoginScreen from '~/screens/login-screen';
+import SecureRouteOne from '~/screens/secure-route-one';
 
 const ButtonScreen = React.lazy(
     () => import('~/screens/component-test/button-screen')
@@ -24,7 +27,11 @@ const Routes: React.FC = () => {
                             path="/full-loader"
                             component={FullLoaderScreen}
                         />
-
+                        <PrivateRoute
+                            path="/secure1"
+                            component={SecureRouteOne}
+                        />
+                        <Route path="/login" component={LoginScreen} />
                         <Route component={RouteNotFound} />
                     </Switch>
                 </React.Suspense>
