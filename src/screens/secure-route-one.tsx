@@ -1,7 +1,7 @@
 const SecureRouteOne = () => {
     return (
         <>
-            <div></div>
+            <div>This is Protected Route</div>
         </>
     );
 };

@@ -4,6 +4,7 @@ import storage from 'redux-persist/lib/storage';
 import persistStore from 'redux-persist/es/persistStore';
 import { APP_MODE } from '~/env';
 import countSlice from '~/redux/slices/count-slice';
+import containerSlice from '~/redux/slices/container-slice';
 
 const persistConfig = {
     key: 'root',
@@ -13,6 +14,7 @@ const persistConfig = {
 
 const reducers = combineReducers({
     counter_store: countSlice,
+    container_store: containerSlice,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducers);

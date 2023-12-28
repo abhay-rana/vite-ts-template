@@ -1,7 +1,8 @@
-import React from 'react';
-import { DefaultParams, Route, RouteComponentProps } from 'wouter';
+import React, { useEffect } from 'react';
+import { DefaultParams, Redirect, Route, RouteComponentProps } from 'wouter';
 import { useAppLocation } from '~/components/library/routing';
-import { useAppSelector } from '~/hooks/redux-hooks';
+import { useAppDispatch, useAppSelector } from '~/hooks/redux-hooks';
+import { AddRouteToPrivateRoute } from '~/redux/slices/container-slice';
 
 export interface IPrivateRoute {
     component: React.ComponentType<RouteComponentProps<DefaultParams>>;
@@ -12,14 +13,20 @@ const PrivateRoute: React.FC<IPrivateRoute> = ({
     component: Component,
     path,
 }) => {
-    const [_, setLocation] = useAppLocation();
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        dispatch(AddRouteToPrivateRoute({ path }));
+    }, []);
+
     const store = useAppSelector((state) => ({
-        is_auth: state.counter_store.counter,
+        is_auth: true,
     }));
 
     if (!store.is_auth) {
-        setLocation('/login');
+        return <Redirect to="/login" />;
     }
+
     return (
         <>
             <Route path={path} component={Component} />
