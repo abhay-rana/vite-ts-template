@@ -19,19 +19,21 @@ const PrivateRoute: React.FC<IPrivateRoute> = ({
         dispatch(AddRouteToPrivateRoute({ path }));
     }, []);
 
-    const store = useAppSelector((state) => ({
-        is_auth: true,
-    }));
+    // const store = useAppSelector((state) => ({
+    //     is_auth: false,
+    // }));
 
-    if (!store.is_auth) {
-        return <Redirect to="/login" />;
-    }
+    console.log('abhay rana');
 
-    return (
-        <>
-            <Route path={path} component={Component} />
-        </>
-    );
+    // if (!store.is_auth) {
+    // }
+
+    return <Redirect to="/login" />;
+    // return (
+    //     <>
+    //         <Route path={path} component={Component} />
+    //     </>
+    // );
 };
 
 export default PrivateRoute;
