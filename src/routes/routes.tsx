@@ -14,24 +14,50 @@ const ButtonScreen = React.lazy(
 
 const RouteNotFound = React.lazy(() => import('~/screens/404'));
 
+const routeConfig = [
+    {
+        path: '/',
+        component: HomeScreen,
+    },
+    {
+        path: '/button',
+        component: ButtonScreen,
+    },
+    {
+        path: '/tabs',
+        component: TabScreen,
+    },
+    {
+        path: '/full-loader',
+        component: FullLoaderScreen,
+    },
+    {
+        path: '/secure1',
+        component: SecureRouteOne,
+    },
+    {
+        path: '/private',
+        component: PrivateRoute,
+    },
+    {
+        path: '/login',
+        component: LoginScreen,
+    },
+];
+
 const Routes: React.FC = () => {
     return (
         <>
             <Router>
                 <React.Suspense fallback={<h1>Loading Routes...</h1>}>
                     <Switch>
-                        <Route path="/" component={HomeScreen} />
-                        <Route path="/button" component={ButtonScreen} />
-                        <Route path="/tabs" component={TabScreen} />
-                        <Route
-                            path="/full-loader"
-                            component={FullLoaderScreen}
-                        />
-                        <PrivateRoute
-                            path="/secure1"
-                            component={SecureRouteOne}
-                        />
-                        <Route path="/login" component={LoginScreen} />
+                        {routeConfig.map((item, index) => (
+                            <Route
+                                key={index}
+                                path={item.path}
+                                component={item.component}
+                            />
+                        ))}
                         <Route component={RouteNotFound} />
                     </Switch>
                 </React.Suspense>
