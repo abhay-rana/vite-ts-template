@@ -13,7 +13,7 @@
         "lint:fix": "eslint --fix --ext ts,tsx,js,jsx .",
         "preview": "vite preview",
         "format": "npx prettier --write .",
-        "clean": "rm -rf node_modules pnpm-lock.yaml",
+        "clean": "rm -rf node_modules pnpm-lock.yaml yarn.lock",
         "prepare": "husky install",
         "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build"

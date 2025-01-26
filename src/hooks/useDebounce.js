@@ -30,17 +30,13 @@ export const useDebounce = (callback, timer = 1000) => {
 // const Input = () => {
 //     const [value, setValue] = useState();
 
-//     const debouncedRequest = useDebounce(() => {
-//         //! send request to the backend
-//         //! access to latest state here
-//*         console.log(value);
-//     });
+//     const debouncedRequest = useDebounce(callbackfunction,1000);
 
 //     const onChange = (e) => {
 //         const value = e.target.value;
 //         setValue(value);
 
-//         debouncedRequest();
+//         debouncedRequest(callbackfunction);
 //     };
 
 //     return <input onChange={onChange} value={value} />;
