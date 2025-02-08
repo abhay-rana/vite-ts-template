@@ -14,11 +14,16 @@ import './styles/globals.css';
 
 import App from '~/App';
 import store from '~/redux/store';
+import { AntdThemeProvider, ThemeProvider } from '~/providers';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <>
         <Provider store={store}>
-            <App />
+            <ThemeProvider>
+                <AntdThemeProvider>
+                    <App />
+                </AntdThemeProvider>
+            </ThemeProvider>
             <Toaster />
         </Provider>
     </>
