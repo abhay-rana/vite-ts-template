@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useEffect } from 'react';
 
 const useCancelToken = () => {
+        //  creates a new CancelToken instance each time it’s called.
     const cancelTokenSource = axios.CancelToken.source();
 
     useEffect(() => {
