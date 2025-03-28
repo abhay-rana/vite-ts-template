@@ -2,6 +2,9 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { Toaster } from 'react-hot-toast';
 
+// store initialization ( at the top always)
+import store from '~/redux/store';
+
 // Core Library Configurations
 import dayjs from 'dayjs';
 import 'dayjs/locale/en'; // Locale setup for dayjs
@@ -13,7 +16,8 @@ import './styles/antd-style.css';
 import './styles/globals.css';
 
 import App from '~/App';
-import store from '~/redux/store';
+
+// Providers
 import { AntdThemeProvider, ThemeProvider } from '~/providers';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

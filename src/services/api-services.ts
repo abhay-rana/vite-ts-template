@@ -1,12 +1,12 @@
 import axios from 'axios';
-import { ProjectUrl } from '~/env';
+import { BASE_URL } from '~/env';
 import { LogoutUser } from '~/redux/actions/auth-actions';
 import store from '~/redux/store';
 import Alertify from '~/services/alertify';
 
 // Create an axios instance with the base URL
 const api = axios.create({
-    baseURL: ProjectUrl,
+    baseURL: BASE_URL,
 });
 
 // Request interceptor to add the authorization token
