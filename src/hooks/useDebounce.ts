@@ -1,7 +1,19 @@
 import debounce from 'lodash.debounce';
 import { useEffect, useMemo, useRef } from 'react';
 
-export const useDebounce = (callback, timer = 1000) => {
+/**
+ * A custom hook that debounces a callback function.
+ * @param {Function} callback - The callback function to debounce.
+ * @param {number} timer - The debounce delay in milliseconds (default: 1000ms).
+ * @returns {Function} - The debounced function.
+ */
+
+interface UseDebounce {
+    callback: (...args: any[]) => void;
+    timer?: number;
+}
+
+export const useDebounce: UseDebounce = (callback, timer = 1000) => {
     const debouncedCallbackRef = useRef();
 
     const debouncedCallback = useMemo(() => {

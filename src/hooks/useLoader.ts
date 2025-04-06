@@ -1,7 +1,9 @@
 import { useState } from 'react';
 // import React from 'react';
 
-export const useLoader = (initial_state) => {
+export const useLoader = (
+    initial_state: boolean
+): [boolean, () => void, () => void] => {
     const [loader, setLoader] = useState(initial_state);
 
     const startLoader = () => setLoader(true);
