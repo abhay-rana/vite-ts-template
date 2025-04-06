@@ -1,11 +1,16 @@
-import { useState } from 'react';
+import React from 'react';
+import Container from '~/components/container.js/container';
+import ErrorBoundary from '~/components/container.js/error-boundary';
+import Routes from '~/routes/routes';
 
-function App() {
+const App: React.FC = () => {
     return (
-        <>
-            <div>hello this is vite app</div>
-        </>
+        <ErrorBoundary>
+            <Container>
+                <Routes />
+            </Container>
+        </ErrorBoundary>
     );
-}
+};
 
 export default App;
